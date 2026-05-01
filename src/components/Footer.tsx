@@ -38,10 +38,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center space-x-2.5 mb-6">
-              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-500 to-blue-400 flex items-center justify-center">
-                <span className="text-white font-bold text-lg">D</span>
-              </div>
-              <span className="text-white font-bold text-xl tracking-tight">Devsynta</span>
+              <img src="/logo-white.png" alt="" className="h-18" />
             </Link>
             <p className="text-slate-400 mb-6 max-w-sm leading-relaxed">
               Building scalable digital solutions for forward-thinking businesses.

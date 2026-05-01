@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
@@ -12,19 +12,35 @@ import { projects, type Project } from "@/data/projects";
 
 const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
 
-export default function PortfolioPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+// ─── Isolated component that calls useSearchParams ───────────────────────────
+// Must be wrapped in <Suspense> to satisfy Next.js static generation rules.
+function SearchParamsHandler({
+  onProject,
+}: {
+  onProject: (project: Project) => void;
+}) {
   const searchParams = useSearchParams();
 
-  // Open modal if ?project=id is in the URL (e.g. from homepage cards)
   useEffect(() => {
     const id = searchParams.get("project");
     if (id) {
       const found = projects.find((p) => p.id === id);
-      if (found) setSelectedProject(found);
+      if (found) onProject(found);
     }
-  }, [searchParams]);
+  }, [searchParams, onProject]);
+
+  return null;
+}
+
+// ─── Main portfolio UI ────────────────────────────────────────────────────────
+function PortfolioContent() {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  // stable ref so SearchParamsHandler's useEffect dep array stays stable
+  const handleProjectFromUrl = useCallback((project: Project) => {
+    setSelectedProject(project);
+  }, []);
 
   const filtered =
     activeCategory === "All"
@@ -33,6 +49,11 @@ export default function PortfolioPage() {
 
   return (
     <div className="min-h-screen bg-white pt-20">
+      {/* Reads ?project= from URL and opens the modal */}
+      <Suspense fallback={null}>
+        <SearchParamsHandler onProject={handleProjectFromUrl} />
+      </Suspense>
+
       {/* Hero */}
       <section className="py-20 hero-gradient relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-100/50 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
@@ -53,7 +74,7 @@ export default function PortfolioPage() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl md:text-6xl font-bold text-slate-900 mb-5 tracking-tight"
           >
-            Work We're{" "}
+            Work We&apos;re{" "}
             <span className="gradient-text">Proud Of</span>
           </motion.h1>
 
@@ -63,7 +84,7 @@ export default function PortfolioPage() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed"
           >
-            A curated collection of projects we've built for our clients — from
+            A curated collection of projects we&apos;ve built for our clients — from
             consumer apps to enterprise platforms. Each one crafted with care.
           </motion.p>
         </div>
@@ -90,10 +111,7 @@ export default function PortfolioPage() {
           </div>
 
           {/* Project grid */}
-          <motion.div
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence>
               {filtered.map((project) => (
                 <motion.div
@@ -115,13 +133,11 @@ export default function PortfolioPage() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    {/* Hover overlay */}
                     <div className="absolute inset-0 bg-indigo-600/0 group-hover:bg-indigo-600/20 transition-colors duration-300 flex items-center justify-center">
                       <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-indigo-600 text-sm font-semibold px-4 py-2 rounded-full shadow-md">
                         View Project
                       </span>
                     </div>
-                    {/* Featured badge */}
                     {project.featured && (
                       <span className="absolute top-3 left-3 bg-indigo-600 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
                         Featured
@@ -163,8 +179,8 @@ export default function PortfolioPage() {
             Have a Project in Mind?
           </h2>
           <p className="text-indigo-200 mb-8 max-w-xl mx-auto leading-relaxed">
-            Let's build something great together. Tell us about your idea and
-            we'll get back to you within 24 hours.
+            Let&apos;s build something great together. Tell us about your idea and
+            we&apos;ll get back to you within 24 hours.
           </p>
           <Link
             href="/contact"
@@ -176,7 +192,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Project Detail Modal */}
+      {/* ── Project Detail Modal ─────────────────────────────────────────────── */}
       <AnimatePresence>
         {selectedProject && (
           <>
@@ -198,7 +214,7 @@ export default function PortfolioPage() {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="fixed inset-x-4 top-[5vh] bottom-[5vh] md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:w-full md:max-w-3xl z-50 bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col"
             >
-              {/* Modal header image */}
+              {/* Header image */}
               <div className="relative w-full aspect-video flex-shrink-0 bg-slate-100">
                 <Image
                   src={selectedProject.images[0]}
@@ -207,7 +223,6 @@ export default function PortfolioPage() {
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 768px"
                 />
-                {/* Close button */}
                 <button
                   onClick={() => setSelectedProject(null)}
                   className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center text-slate-700 hover:bg-white transition-colors shadow-md"
@@ -215,15 +230,14 @@ export default function PortfolioPage() {
                 >
                   <X className="w-4 h-4" />
                 </button>
-                {/* Category badge */}
                 <span className="absolute bottom-4 left-4 bg-indigo-600 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
                   {selectedProject.category}
                 </span>
               </div>
 
-              {/* Modal body — scrollable */}
+              {/* Scrollable body */}
               <div className="flex-1 overflow-y-auto p-6 md:p-8">
-                {/* Title + meta */}
+                {/* Title + live link */}
                 <div className="flex items-start justify-between gap-4 mb-4">
                   <div>
                     <h2 className="text-2xl font-bold text-slate-900 mb-1">
@@ -246,7 +260,7 @@ export default function PortfolioPage() {
                   )}
                 </div>
 
-                {/* Meta row */}
+                {/* Meta */}
                 <div className="flex flex-wrap gap-4 mb-6 pb-6 border-b border-slate-100">
                   {selectedProject.client && (
                     <div className="flex items-center gap-1.5 text-slate-500 text-sm">
@@ -271,7 +285,7 @@ export default function PortfolioPage() {
 
                 {/* Highlights */}
                 <div className="mb-6">
-                  <h3 className="text-sm font-semibold text-slate-900 uppercase tracking-wider mb-3">
+                  <h3 className="text-xs font-semibold text-slate-900 uppercase tracking-wider mb-3">
                     Key Highlights
                   </h3>
                   <ul className="space-y-2">
@@ -286,7 +300,7 @@ export default function PortfolioPage() {
 
                 {/* Tech stack */}
                 <div>
-                  <h3 className="text-sm font-semibold text-slate-900 uppercase tracking-wider mb-3">
+                  <h3 className="text-xs font-semibold text-slate-900 uppercase tracking-wider mb-3">
                     Tech Stack
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -306,5 +320,14 @@ export default function PortfolioPage() {
         )}
       </AnimatePresence>
     </div>
+  );
+}
+
+// ─── Default export wraps everything in Suspense ─────────────────────────────
+export default function PortfolioPage() {
+  return (
+    <Suspense fallback={null}>
+      <PortfolioContent />
+    </Suspense>
   );
 }

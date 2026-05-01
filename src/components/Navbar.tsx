@@ -36,10 +36,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-18 py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2.5">
-            <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-600 to-blue-500 flex items-center justify-center shadow-md shadow-indigo-200">
+          <img src="/logo.png" alt="" className="h-18" />
+            {/* <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-600 to-blue-500 flex items-center justify-center shadow-md shadow-indigo-200">
               <span className="text-white font-bold text-lg">D</span>
             </div>
-            <span className="text-slate-900 font-bold text-xl tracking-tight">Devsynta</span>
+            <span className="text-slate-900 font-bold text-xl tracking-tight">Devsynta</span> */}
           </Link>
 
           {/* Desktop Navigation */}
