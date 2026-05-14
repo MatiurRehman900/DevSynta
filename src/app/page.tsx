@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, Zap, Shield, Globe, Smartphone, ExternalLink } from "lucide-react";
+import { ArrowRight, CheckCircle2, Zap, Shield, Globe, Smartphone } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import { featuredProjects } from "@/data/projects";
@@ -69,8 +69,8 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden hero-gradient">
         {/* Decorative blobs */}
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-indigo-100/60 rounded-full blur-3xl -translate-y-1/4 translate-x-1/4" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-100/50 rounded-full blur-3xl translate-y-1/4 -translate-x-1/4" />
+        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-[#28a0a0]/15 rounded-full blur-3xl -translate-y-1/4 translate-x-1/4" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#143c78]/10 rounded-full blur-3xl translate-y-1/4 -translate-x-1/4" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
           <div className="text-center">
@@ -79,8 +79,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-sm font-medium mb-8">
-                <span className="w-2 h-2 rounded-full bg-indigo-500 animate-subtle-pulse" />
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e0f2f2] border border-[#28a0a0]/30 text-[#14648c] text-sm font-medium mb-8">
+                <span className="w-2 h-2 rounded-full bg-[#28a0a0] animate-subtle-pulse" />
                 Full-Service IT Company
               </span>
             </motion.div>
@@ -114,14 +114,14 @@ export default function Home() {
             >
               <Link
                 href="/contact"
-                className="px-7 py-3.5 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-all duration-200 shadow-md shadow-indigo-200 flex items-center"
+                className="px-7 py-3.5 bg-[#14283c] text-white rounded-lg font-semibold hover:bg-[#143c78] transition-all duration-200 shadow-md flex items-center"
               >
                 Get Started
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
               <Link
                 href="/services"
-                className="px-7 py-3.5 border border-slate-200 text-slate-700 rounded-lg font-semibold hover:bg-slate-50 hover:border-slate-300 transition-all duration-200"
+                className="px-7 py-3.5 border border-slate-200 text-slate-700 rounded-lg font-semibold hover:bg-[#e0f2f2] hover:border-[#28a0a0]/40 transition-all duration-200"
               >
                 Our Services
               </Link>
@@ -154,7 +154,7 @@ export default function Home() {
       <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="text-indigo-600 font-medium text-sm uppercase tracking-wider">What We Do</span>
+            <span className="text-[#14648c] font-medium text-sm uppercase tracking-wider">What We Do</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">
               Comprehensive IT Solutions
             </h2>
@@ -181,7 +181,7 @@ export default function Home() {
           <div className="text-center mt-10">
             <Link
               href="/services"
-              className="inline-flex items-center text-indigo-600 hover:text-indigo-700 font-medium text-sm transition-colors"
+              className="inline-flex items-center text-[#14648c] hover:text-[#14283c] font-medium text-sm transition-colors"
             >
               View All Services
               <ArrowRight className="ml-1.5 w-4 h-4" />
@@ -195,7 +195,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-14">
             <div>
-              <span className="text-indigo-600 font-medium text-sm uppercase tracking-wider">Our Work</span>
+              <span className="text-[#14648c] font-medium text-sm uppercase tracking-wider">Our Work</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">
                 Featured Projects
               </h2>
@@ -206,7 +206,7 @@ export default function Home() {
             </div>
             <Link
               href="/portfolio"
-              className="flex-shrink-0 inline-flex items-center gap-1.5 text-indigo-600 hover:text-indigo-700 font-medium text-sm transition-colors"
+              className="flex-shrink-0 inline-flex items-center gap-1.5 text-[#14648c] hover:text-[#14283c] font-medium text-sm transition-colors"
             >
               See All Projects
               <ArrowRight className="w-4 h-4" />
@@ -235,12 +235,12 @@ export default function Home() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-indigo-600/0 group-hover:bg-indigo-600/15 transition-colors duration-300 flex items-center justify-center">
-                      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-indigo-600 text-xs font-semibold px-3 py-1.5 rounded-full shadow">
+                    <div className="absolute inset-0 bg-[#14283c]/0 group-hover:bg-[#14283c]/15 transition-colors duration-300 flex items-center justify-center">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-[#14283c] text-xs font-semibold px-3 py-1.5 rounded-full shadow">
                         View Project
                       </span>
                     </div>
-                    <span className="absolute top-3 left-3 bg-indigo-600 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                    <span className="absolute top-3 left-3 bg-[#14283c] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
                       Featured
                     </span>
                   </div>
@@ -251,13 +251,13 @@ export default function Home() {
                       {project.tags.slice(0, 3).map((tag, i) => (
                         <span
                           key={i}
-                          className="px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-600 text-xs font-medium"
+                          className="px-2.5 py-0.5 rounded-full bg-[#e0f2f2] text-[#14648c] text-xs font-medium"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <h3 className="text-slate-900 font-semibold text-lg mb-1 group-hover:text-indigo-600 transition-colors">
+                    <h3 className="text-slate-900 font-semibold text-lg mb-1 group-hover:text-[#14283c] transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-slate-400 text-xs font-medium mb-2">{project.tagline}</p>
@@ -274,7 +274,7 @@ export default function Home() {
           <div className="text-center mt-10">
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-slate-200 text-slate-700 rounded-lg font-medium hover:bg-slate-50 hover:border-indigo-200 hover:text-indigo-600 transition-all duration-200 text-sm shadow-sm"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-slate-200 text-slate-700 rounded-lg font-medium hover:bg-[#e0f2f2] hover:border-[#28a0a0]/40 hover:text-[#14283c] transition-all duration-200 text-sm shadow-sm"
             >
               View All Projects in Portfolio
               <ArrowRight className="w-4 h-4" />
@@ -293,7 +293,7 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <span className="text-indigo-600 font-medium text-sm uppercase tracking-wider">About Devsynta</span>
+              <span className="text-[#14648c] font-medium text-sm uppercase tracking-wider">About Devsynta</span>
               <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-5">
                 Driving Digital Transformation
               </h2>
@@ -311,7 +311,7 @@ export default function Home() {
                   "Competitive pricing with no hidden costs",
                 ].map((item, index) => (
                   <div key={index} className="flex items-center">
-                    <CheckCircle2 className="w-5 h-5 text-indigo-500 mr-3 flex-shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#28a0a0] mr-3 flex-shrink-0" />
                     <span className="text-slate-600 text-sm">{item}</span>
                   </div>
                 ))}
@@ -319,7 +319,7 @@ export default function Home() {
 
               <Link
                 href="/about"
-                className="inline-flex items-center px-6 py-3 bg-white border border-slate-200 text-slate-700 rounded-lg font-medium hover:bg-slate-50 hover:border-slate-300 transition-all duration-200 shadow-sm text-sm"
+                className="inline-flex items-center px-6 py-3 bg-white border border-slate-200 text-slate-700 rounded-lg font-medium hover:bg-[#e0f2f2] hover:border-[#28a0a0]/40 transition-all duration-200 shadow-sm text-sm"
               >
                 Learn More About Us
                 <ArrowRight className="ml-2 w-4 h-4" />
@@ -353,7 +353,7 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="text-indigo-600 font-medium text-sm uppercase tracking-wider">Testimonials</span>
+            <span className="text-[#14648c] font-medium text-sm uppercase tracking-wider">Testimonials</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">
               What Our Clients Say
             </h2>
@@ -380,7 +380,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-indigo-600">
+      <section className="py-24" style={{ background: "linear-gradient(135deg, #14283c 0%, #143c78 60%, #14648c 100%)" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -391,20 +391,20 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Ready to Transform Your Business?
             </h2>
-            <p className="text-indigo-200 mb-10 max-w-xl mx-auto leading-relaxed">
+            <p className="text-white/70 mb-10 max-w-xl mx-auto leading-relaxed">
               Let's discuss your project and see how we can help you achieve
               your digital goals.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="px-7 py-3.5 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 transition-all duration-200 shadow-md"
+                className="px-7 py-3.5 bg-white text-[#14283c] rounded-lg font-semibold hover:bg-[#e0f2f2] transition-all duration-200 shadow-md"
               >
                 Get Started Today
               </Link>
               <Link
                 href="/contact"
-                className="px-7 py-3.5 border border-indigo-400 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-all duration-200"
+                className="px-7 py-3.5 border border-white/40 text-white rounded-lg font-semibold hover:bg-white/10 transition-all duration-200"
               >
                 Contact Us
               </Link>

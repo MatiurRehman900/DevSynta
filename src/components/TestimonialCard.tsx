@@ -15,7 +15,7 @@ export default function TestimonialCard({
   company,
 }: TestimonialCardProps) {
   return (
-    <div className="p-7 rounded-2xl bg-white border border-slate-200 hover:border-indigo-200 card-hover shadow-sm">
+    <div className="p-7 rounded-2xl bg-white border border-slate-200 hover:border-[#28a0a0] card-hover shadow-sm">
       {/* Stars */}
       <div className="flex space-x-1 mb-5">
         {[...Array(5)].map((_, i) => (
@@ -32,7 +32,7 @@ export default function TestimonialCard({
 
       {/* Author Info */}
       <div className="flex items-center">
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center mr-3 flex-shrink-0">
+        <div className="w-10 h-10 rounded-full flex items-center justify-center mr-3 flex-shrink-0" style={{ background: "linear-gradient(135deg, #143c78, #28a0a0)" }}>
           <span className="text-white font-semibold text-sm">
             {author.charAt(0)}
           </span>

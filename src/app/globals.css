@@ -3,6 +3,14 @@
 :root {
   --background: #ffffff;
   --foreground: #0f172a;
+
+  /* Brand palette derived from logo */
+  --brand-navy:        #14283c;   /* darkest navy */
+  --brand-navy-mid:    #143c78;   /* mid navy */
+  --brand-blue:        #14648c;   /* steel blue */
+  --brand-teal:        #28a0a0;   /* teal accent */
+  --brand-teal-light:  #28b4a0;   /* lighter teal */
+  --brand-teal-dark:   #1e7878;   /* darker teal */
 }
 
 @theme inline {
@@ -29,12 +37,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #6366f1, #3b82f6);
+  background: linear-gradient(to bottom, var(--brand-teal), var(--brand-blue));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #4f46e5, #2563eb);
+  background: linear-gradient(to bottom, var(--brand-teal-dark), var(--brand-navy-mid));
 }
 
 /* Smooth scrolling */
@@ -42,22 +50,22 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Gradient text utility */
+/* Gradient text utility — navy → teal */
 .gradient-text {
-  background: linear-gradient(135deg, #6366f1, #3b82f6);
+  background: linear-gradient(135deg, var(--brand-navy-mid), var(--brand-teal));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Hero gradient background */
+/* Hero gradient background — soft teal/navy tint */
 .hero-gradient {
-  background: linear-gradient(135deg, #f8faff 0%, #eef2ff 50%, #e0e7ff 100%);
+  background: linear-gradient(135deg, #f0f7f9 0%, #e0f2f2 50%, #cceaea 100%);
 }
 
 /* Section gradient */
 .section-gradient {
-  background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #f0f7f9 100%);
 }
 
 /* Card hover shadow */
@@ -67,7 +75,7 @@ html {
 
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.12);
+  box-shadow: 0 20px 40px rgba(40, 160, 160, 0.12);
 }
 
 /* Floating animation */

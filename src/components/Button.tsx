@@ -27,11 +27,11 @@ export default function Button({
 
   const variants = {
     primary:
-      "bg-indigo-600 text-white hover:bg-indigo-700 shadow-sm shadow-indigo-200",
+      "bg-[#14283c] text-white hover:bg-[#143c78] shadow-sm",
     secondary:
       "bg-slate-100 text-slate-700 hover:bg-slate-200",
     outline:
-      "border border-indigo-600 text-indigo-600 hover:bg-indigo-50",
+      "border border-[#14283c] text-[#14283c] hover:bg-[#e0f2f2]",
   };
 
   const sizes = {

@@ -13,7 +13,6 @@ import { projects, type Project } from "@/data/projects";
 const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
 
 // ─── Isolated component that calls useSearchParams ───────────────────────────
-// Must be wrapped in <Suspense> to satisfy Next.js static generation rules.
 function SearchParamsHandler({
   onProject,
 }: {
@@ -37,7 +36,6 @@ function PortfolioContent() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
-  // stable ref so SearchParamsHandler's useEffect dep array stays stable
   const handleProjectFromUrl = useCallback((project: Project) => {
     setSelectedProject(project);
   }, []);
@@ -49,21 +47,20 @@ function PortfolioContent() {
 
   return (
     <div className="min-h-screen bg-white pt-20">
-      {/* Reads ?project= from URL and opens the modal */}
       <Suspense fallback={null}>
         <SearchParamsHandler onProject={handleProjectFromUrl} />
       </Suspense>
 
       {/* Hero */}
       <section className="py-20 hero-gradient relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-100/50 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#28a0a0]/15 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-sm font-medium mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e0f2f2] border border-[#28a0a0]/30 text-[#14648c] text-sm font-medium mb-8">
               Our Portfolio
             </span>
           </motion.div>
@@ -101,8 +98,8 @@ function PortfolioContent() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   activeCategory === cat
-                    ? "bg-indigo-600 text-white shadow-sm shadow-indigo-200"
-                    : "bg-slate-100 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600"
+                    ? "bg-[#14283c] text-white shadow-sm"
+                    : "bg-slate-100 text-slate-600 hover:bg-[#e0f2f2] hover:text-[#14283c]"
                 }`}
               >
                 {cat}
@@ -133,13 +130,13 @@ function PortfolioContent() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-indigo-600/0 group-hover:bg-indigo-600/20 transition-colors duration-300 flex items-center justify-center">
-                      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-indigo-600 text-sm font-semibold px-4 py-2 rounded-full shadow-md">
+                    <div className="absolute inset-0 bg-[#14283c]/0 group-hover:bg-[#14283c]/20 transition-colors duration-300 flex items-center justify-center">
+                      <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white text-[#14283c] text-sm font-semibold px-4 py-2 rounded-full shadow-md">
                         View Project
                       </span>
                     </div>
                     {project.featured && (
-                      <span className="absolute top-3 left-3 bg-indigo-600 text-white text-xs font-semibold px-2.5 py-1 rounded-full">
+                      <span className="absolute top-3 left-3 bg-[#14283c] text-white text-xs font-semibold px-2.5 py-1 rounded-full">
                         Featured
                       </span>
                     )}
@@ -151,13 +148,13 @@ function PortfolioContent() {
                       {project.tags.slice(0, 3).map((tag, i) => (
                         <span
                           key={i}
-                          className="px-2.5 py-0.5 rounded-full bg-indigo-50 text-indigo-600 text-xs font-medium"
+                          className="px-2.5 py-0.5 rounded-full bg-[#e0f2f2] text-[#14648c] text-xs font-medium"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <h3 className="text-slate-900 font-semibold text-lg mb-1 group-hover:text-indigo-600 transition-colors">
+                    <h3 className="text-slate-900 font-semibold text-lg mb-1 group-hover:text-[#14283c] transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-slate-400 text-xs font-medium mb-2">{project.tagline}</p>
@@ -173,18 +170,18 @@ function PortfolioContent() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-indigo-600">
+      <section className="py-20" style={{ background: "linear-gradient(135deg, #14283c 0%, #143c78 60%, #14648c 100%)" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Have a Project in Mind?
           </h2>
-          <p className="text-indigo-200 mb-8 max-w-xl mx-auto leading-relaxed">
+          <p className="text-white/70 mb-8 max-w-xl mx-auto leading-relaxed">
             Let&apos;s build something great together. Tell us about your idea and
             we&apos;ll get back to you within 24 hours.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center px-7 py-3.5 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 transition-all duration-200 shadow-md"
+            className="inline-flex items-center px-7 py-3.5 bg-white text-[#14283c] rounded-lg font-semibold hover:bg-[#e0f2f2] transition-all duration-200 shadow-md"
           >
             Start a Project
             <ArrowRight className="ml-2 w-4 h-4" />
@@ -230,7 +227,7 @@ function PortfolioContent() {
                 >
                   <X className="w-4 h-4" />
                 </button>
-                <span className="absolute bottom-4 left-4 bg-indigo-600 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
+                <span className="absolute bottom-4 left-4 bg-[#14283c] text-white text-xs font-semibold px-3 py-1.5 rounded-full">
                   {selectedProject.category}
                 </span>
               </div>
@@ -243,7 +240,7 @@ function PortfolioContent() {
                     <h2 className="text-2xl font-bold text-slate-900 mb-1">
                       {selectedProject.title}
                     </h2>
-                    <p className="text-indigo-600 font-medium text-sm">
+                    <p className="text-[#14648c] font-medium text-sm">
                       {selectedProject.tagline}
                     </p>
                   </div>
@@ -252,7 +249,7 @@ function PortfolioContent() {
                       href={selectedProject.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors"
+                      className="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 bg-[#14283c] text-white text-sm font-medium rounded-lg hover:bg-[#143c78] transition-colors"
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
                       Live Site
@@ -264,16 +261,16 @@ function PortfolioContent() {
                 <div className="flex flex-wrap gap-4 mb-6 pb-6 border-b border-slate-100">
                   {selectedProject.client && (
                     <div className="flex items-center gap-1.5 text-slate-500 text-sm">
-                      <User className="w-4 h-4 text-indigo-400" />
+                      <User className="w-4 h-4 text-[#28a0a0]" />
                       <span>{selectedProject.client}</span>
                     </div>
                   )}
                   <div className="flex items-center gap-1.5 text-slate-500 text-sm">
-                    <Calendar className="w-4 h-4 text-indigo-400" />
+                    <Calendar className="w-4 h-4 text-[#28a0a0]" />
                     <span>{selectedProject.year}</span>
                   </div>
                   <div className="flex items-center gap-1.5 text-slate-500 text-sm">
-                    <Tag className="w-4 h-4 text-indigo-400" />
+                    <Tag className="w-4 h-4 text-[#28a0a0]" />
                     <span>{selectedProject.category}</span>
                   </div>
                 </div>
@@ -291,7 +288,7 @@ function PortfolioContent() {
                   <ul className="space-y-2">
                     {selectedProject.highlights.map((h, i) => (
                       <li key={i} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-4 h-4 text-indigo-500 mt-0.5 flex-shrink-0" />
+                        <CheckCircle2 className="w-4 h-4 text-[#28a0a0] mt-0.5 flex-shrink-0" />
                         <span className="text-slate-600 text-sm">{h}</span>
                       </li>
                     ))}
@@ -307,7 +304,7 @@ function PortfolioContent() {
                     {selectedProject.tags.map((tag, i) => (
                       <span
                         key={i}
-                        className="px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-medium border border-indigo-100"
+                        className="px-3 py-1 rounded-full bg-[#e0f2f2] text-[#14648c] text-xs font-medium border border-[#28a0a0]/20"
                       >
                         {tag}
                       </span>

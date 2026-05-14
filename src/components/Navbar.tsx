@@ -36,11 +36,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-18 py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2.5">
-          <img src="/logo.png" alt="" className="h-18" />
-            {/* <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-indigo-600 to-blue-500 flex items-center justify-center shadow-md shadow-indigo-200">
-              <span className="text-white font-bold text-lg">D</span>
-            </div>
-            <span className="text-slate-900 font-bold text-xl tracking-tight">Devsynta</span> */}
+            <img src="/logo.png" alt="Devsynta" className="h-18" />
           </Link>
 
           {/* Desktop Navigation */}
@@ -49,14 +45,14 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="px-4 py-2 text-slate-600 hover:text-indigo-600 transition-colors duration-200 text-sm font-medium rounded-lg hover:bg-indigo-50"
+                className="px-4 py-2 text-slate-600 hover:text-[#14283c] transition-colors duration-200 text-sm font-medium rounded-lg hover:bg-[#e0f2f2]"
               >
                 {link.name}
               </Link>
             ))}
             <Link
               href="/contact"
-              className="ml-4 px-5 py-2.5 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-all duration-200 shadow-sm shadow-indigo-200"
+              className="ml-4 px-5 py-2.5 bg-[#14283c] text-white rounded-lg text-sm font-medium hover:bg-[#143c78] transition-all duration-200 shadow-sm"
             >
               Get Started
             </Link>
@@ -81,7 +77,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-slate-600 hover:text-indigo-600 hover:bg-indigo-50 transition-colors duration-200 text-base font-medium py-2.5 px-3 rounded-lg"
+                  className="text-slate-600 hover:text-[#14283c] hover:bg-[#e0f2f2] transition-colors duration-200 text-base font-medium py-2.5 px-3 rounded-lg"
                 >
                   {link.name}
                 </Link>
@@ -89,7 +85,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="mt-3 px-5 py-3 bg-indigo-600 text-white rounded-lg text-center text-sm font-medium hover:bg-indigo-700 transition-colors"
+                className="mt-3 px-5 py-3 bg-[#14283c] text-white rounded-lg text-center text-sm font-medium hover:bg-[#143c78] transition-colors"
               >
                 Get Started
               </Link>

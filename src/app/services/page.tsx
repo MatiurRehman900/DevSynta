@@ -171,7 +171,7 @@ export default function ServicesPage() {
     <div className="min-h-screen bg-white pt-20">
       {/* Hero Section */}
       <section className="py-20 hero-gradient relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-100/50 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#28a0a0]/15 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <motion.div
@@ -179,7 +179,7 @@ export default function ServicesPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-sm font-medium mb-8">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e0f2f2] border border-[#28a0a0]/30 text-[#14648c] text-sm font-medium mb-8">
                 Our Services
               </span>
             </motion.div>
@@ -230,10 +230,10 @@ export default function ServicesPage() {
                 >
                   {/* Service label */}
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center flex-shrink-0">
-                      <service.icon className="w-5 h-5 text-indigo-600" />
+                    <div className="w-10 h-10 rounded-xl bg-[#e0f2f2] flex items-center justify-center flex-shrink-0">
+                      <service.icon className="w-5 h-5 text-[#14283c]" />
                     </div>
-                    <span className="text-indigo-600 font-medium text-sm uppercase tracking-wider">
+                    <span className="text-[#14648c] font-medium text-sm uppercase tracking-wider">
                       {service.title}
                     </span>
                   </div>
@@ -255,7 +255,7 @@ export default function ServicesPage() {
                       <ul className="space-y-2">
                         {service.features.map((feature, index) => (
                           <li key={index} className="flex items-start">
-                            <CheckCircle2 className="w-4 h-4 text-indigo-500 mr-2 mt-0.5 flex-shrink-0" />
+                            <CheckCircle2 className="w-4 h-4 text-[#28a0a0] mr-2 mt-0.5 flex-shrink-0" />
                             <span className="text-slate-600 text-sm">{feature}</span>
                           </li>
                         ))}
@@ -268,7 +268,7 @@ export default function ServicesPage() {
                       <ul className="space-y-2">
                         {service.benefits.map((benefit, index) => (
                           <li key={index} className="flex items-start">
-                            <CheckCircle2 className="w-4 h-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
+                            <CheckCircle2 className="w-4 h-4 text-[#14648c] mr-2 mt-0.5 flex-shrink-0" />
                             <span className="text-slate-600 text-sm">{benefit}</span>
                           </li>
                         ))}
@@ -285,7 +285,7 @@ export default function ServicesPage() {
                       {service.technologies.map((tech, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-medium border border-indigo-100"
+                          className="px-3 py-1 rounded-full bg-[#e0f2f2] text-[#14648c] text-xs font-medium border border-[#28a0a0]/20"
                         >
                           {tech}
                         </span>
@@ -314,7 +314,7 @@ export default function ServicesPage() {
       })}
 
       {/* CTA Section */}
-      <section className="py-20 bg-indigo-600">
+      <section className="py-20" style={{ background: "linear-gradient(135deg, #14283c 0%, #143c78 60%, #14648c 100%)" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -325,21 +325,21 @@ export default function ServicesPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Need a Custom Solution?
             </h2>
-            <p className="text-indigo-200 mb-10 max-w-xl mx-auto leading-relaxed">
+            <p className="text-white/70 mb-10 max-w-xl mx-auto leading-relaxed">
               Let's discuss your project and create a tailored solution that meets
               your specific business requirements.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="px-7 py-3.5 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 transition-all duration-200 shadow-md flex items-center"
+                className="px-7 py-3.5 bg-white text-[#14283c] rounded-lg font-semibold hover:bg-[#e0f2f2] transition-all duration-200 shadow-md flex items-center"
               >
                 Get Started
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
               <Link
                 href="/contact"
-                className="px-7 py-3.5 border border-indigo-400 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-all duration-200"
+                className="px-7 py-3.5 border border-white/40 text-white rounded-lg font-semibold hover:bg-white/10 transition-all duration-200"
               >
                 Contact Us
               </Link>

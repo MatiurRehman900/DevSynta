@@ -66,8 +66,8 @@ export default function AboutPage() {
     <div className="min-h-screen bg-white pt-20">
       {/* Hero Section */}
       <section className="py-20 hero-gradient relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-100/50 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-100/40 rounded-full blur-3xl -translate-x-1/4 translate-y-1/4" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#28a0a0]/15 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#143c78]/10 rounded-full blur-3xl -translate-x-1/4 translate-y-1/4" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
@@ -76,7 +76,7 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-sm font-medium mb-8">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e0f2f2] border border-[#28a0a0]/30 text-[#14648c] text-sm font-medium mb-8">
                 About Devsynta
               </span>
             </motion.div>
@@ -115,8 +115,8 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm card-hover"
             >
-              <div className="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center mb-5">
-                <Target className="w-6 h-6 text-indigo-600" />
+              <div className="w-12 h-12 rounded-xl bg-[#e0f2f2] flex items-center justify-center mb-5">
+                <Target className="w-6 h-6 text-[#14283c]" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">Our Mission</h3>
               <p className="text-slate-500 leading-relaxed text-sm">
@@ -133,8 +133,8 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm card-hover"
             >
-              <div className="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center mb-5">
-                <Eye className="w-6 h-6 text-indigo-600" />
+              <div className="w-12 h-12 rounded-xl bg-[#e0f2f2] flex items-center justify-center mb-5">
+                <Eye className="w-6 h-6 text-[#14283c]" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-3">Our Vision</h3>
               <p className="text-slate-500 leading-relaxed text-sm">
@@ -151,7 +151,7 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-indigo-600 font-medium text-sm uppercase tracking-wider">By the Numbers</span>
+            <span className="text-[#14648c] font-medium text-sm uppercase tracking-wider">By the Numbers</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">
               Our Track Record
             </h2>
@@ -180,7 +180,7 @@ export default function AboutPage() {
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-indigo-600 font-medium text-sm uppercase tracking-wider">Why Devsynta</span>
+            <span className="text-[#14648c] font-medium text-sm uppercase tracking-wider">Why Devsynta</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">
               The Devsynta Difference
             </h2>
@@ -197,10 +197,10 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 viewport={{ once: true }}
-                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-indigo-200 card-hover shadow-sm"
+                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-[#28a0a0] card-hover shadow-sm"
               >
-                <div className="w-11 h-11 rounded-xl bg-indigo-50 flex items-center justify-center mb-4">
-                  <feature.icon className="w-5 h-5 text-indigo-600" />
+                <div className="w-11 h-11 rounded-xl bg-[#e0f2f2] flex items-center justify-center mb-4">
+                  <feature.icon className="w-5 h-5 text-[#14283c]" />
                 </div>
                 <h3 className="text-slate-900 font-semibold mb-2">{feature.title}</h3>
                 <p className="text-slate-500 text-sm leading-relaxed">{feature.description}</p>
@@ -214,7 +214,7 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <span className="text-indigo-600 font-medium text-sm uppercase tracking-wider">Our Team</span>
+            <span className="text-[#14648c] font-medium text-sm uppercase tracking-wider">Our Team</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">
               Meet the Experts
             </h2>
@@ -231,15 +231,18 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
                 viewport={{ once: true }}
-                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-indigo-200 card-hover shadow-sm text-center"
+                className="p-6 rounded-2xl bg-white border border-slate-200 hover:border-[#28a0a0] card-hover shadow-sm text-center"
               >
-                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-indigo-500 to-blue-500 flex items-center justify-center shadow-md shadow-indigo-100">
+                <div
+                  className="w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center shadow-md"
+                  style={{ background: "linear-gradient(135deg, #143c78, #28a0a0)" }}
+                >
                   <span className="text-2xl font-bold text-white">
                     {member.name.charAt(0)}
                   </span>
                 </div>
                 <h3 className="text-slate-900 font-semibold mb-1">{member.name}</h3>
-                <p className="text-indigo-600 text-sm font-medium mb-2">{member.role}</p>
+                <p className="text-[#14648c] text-sm font-medium mb-2">{member.role}</p>
                 <p className="text-slate-400 text-xs leading-relaxed">{member.bio}</p>
               </motion.div>
             ))}
@@ -248,7 +251,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-indigo-600">
+      <section className="py-20" style={{ background: "linear-gradient(135deg, #14283c 0%, #143c78 60%, #14648c 100%)" }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -259,21 +262,21 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Ready to Work Together?
             </h2>
-            <p className="text-indigo-200 mb-10 max-w-xl mx-auto leading-relaxed">
+            <p className="text-white/70 mb-10 max-w-xl mx-auto leading-relaxed">
               Let's discuss your project and see how we can help you achieve
               your digital goals.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="px-7 py-3.5 bg-white text-indigo-600 rounded-lg font-semibold hover:bg-indigo-50 transition-all duration-200 shadow-md flex items-center"
+                className="px-7 py-3.5 bg-white text-[#14283c] rounded-lg font-semibold hover:bg-[#e0f2f2] transition-all duration-200 shadow-md flex items-center"
               >
                 Get Started
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
               <Link
                 href="/services"
-                className="px-7 py-3.5 border border-indigo-400 text-white rounded-lg font-semibold hover:bg-indigo-700 transition-all duration-200"
+                className="px-7 py-3.5 border border-white/40 text-white rounded-lg font-semibold hover:bg-white/10 transition-all duration-200"
               >
                 View Our Services
               </Link>

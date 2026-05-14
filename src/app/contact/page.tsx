@@ -59,13 +59,13 @@ export default function ContactPage() {
   ];
 
   const inputClass =
-    "w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100 outline-none transition-all text-sm";
+    "w-full px-4 py-3 rounded-xl bg-white border border-slate-200 text-slate-900 placeholder-slate-400 focus:border-[#28a0a0] focus:ring-2 focus:ring-[#28a0a0]/20 outline-none transition-all text-sm";
 
   return (
     <div className="min-h-screen bg-white pt-20">
       {/* Hero Section */}
       <section className="py-20 hero-gradient relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-100/50 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#28a0a0]/15 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
             <motion.div
@@ -73,7 +73,7 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-600 text-sm font-medium mb-8">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e0f2f2] border border-[#28a0a0]/30 text-[#14648c] text-sm font-medium mb-8">
                 Contact Us
               </span>
             </motion.div>
@@ -126,7 +126,7 @@ export default function ContactPage() {
                   </p>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="text-indigo-600 hover:text-indigo-700 font-medium text-sm"
+                    className="text-[#14648c] hover:text-[#14283c] font-medium text-sm"
                   >
                     Send another message
                   </button>
@@ -208,7 +208,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full px-8 py-3.5 bg-indigo-600 text-white rounded-xl font-semibold hover:bg-indigo-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-sm shadow-indigo-200 text-sm"
+                    className="w-full px-8 py-3.5 bg-[#14283c] text-white rounded-xl font-semibold hover:bg-[#143c78] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center shadow-sm text-sm"
                   >
                     {isSubmitting ? (
                       <>
@@ -250,14 +250,14 @@ export default function ContactPage() {
                 {contactInfo.map((info, index) => (
                   <div
                     key={index}
-                    className="flex items-start p-5 rounded-2xl bg-white border border-slate-200 hover:border-indigo-200 card-hover shadow-sm"
+                    className="flex items-start p-5 rounded-2xl bg-white border border-slate-200 hover:border-[#28a0a0] card-hover shadow-sm"
                   >
-                    <div className="w-11 h-11 rounded-xl bg-indigo-50 flex items-center justify-center mr-4 flex-shrink-0">
-                      <info.icon className="w-5 h-5 text-indigo-600" />
+                    <div className="w-11 h-11 rounded-xl bg-[#e0f2f2] flex items-center justify-center mr-4 flex-shrink-0">
+                      <info.icon className="w-5 h-5 text-[#14283c]" />
                     </div>
                     <div>
                       <h3 className="text-slate-900 font-semibold text-sm mb-0.5">{info.title}</h3>
-                      <p className="text-indigo-600 font-medium text-sm">{info.details}</p>
+                      <p className="text-[#14648c] font-medium text-sm">{info.details}</p>
                       <p className="text-slate-400 text-xs mt-0.5">{info.description}</p>
                     </div>
                   </div>
@@ -267,12 +267,12 @@ export default function ContactPage() {
               {/* Response Time */}
               <div className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm mb-6">
                 <div className="flex items-center mb-2">
-                  <Clock className="w-5 h-5 text-indigo-600 mr-2.5" />
+                  <Clock className="w-5 h-5 text-[#28a0a0] mr-2.5" />
                   <h3 className="text-slate-900 font-semibold text-sm">Response Time</h3>
                 </div>
                 <p className="text-slate-500 text-sm">
                   We typically respond to all inquiries within{" "}
-                  <span className="text-indigo-600 font-medium">24 hours</span> during business days.
+                  <span className="text-[#14648c] font-medium">24 hours</span> during business days.
                 </p>
               </div>
 
@@ -284,7 +284,7 @@ export default function ContactPage() {
                     <a
                       key={index}
                       href={social.href}
-                      className="px-4 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-indigo-600 hover:text-white transition-all duration-200 text-xs font-medium"
+                      className="px-4 py-2 rounded-lg bg-slate-100 text-slate-600 hover:bg-[#14283c] hover:text-white transition-all duration-200 text-xs font-medium"
                     >
                       {social.name}
                     </a>
@@ -300,7 +300,7 @@ export default function ContactPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <span className="text-indigo-600 font-medium text-sm uppercase tracking-wider">Find Us</span>
+            <span className="text-[#14648c] font-medium text-sm uppercase tracking-wider">Find Us</span>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">
               Our Location
             </h2>
@@ -315,8 +315,8 @@ export default function ContactPage() {
           >
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
-                <div className="w-16 h-16 rounded-2xl bg-indigo-50 flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="w-8 h-8 text-indigo-600" />
+                <div className="w-16 h-16 rounded-2xl bg-[#e0f2f2] flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="w-8 h-8 text-[#14283c]" />
                 </div>
                 <p className="text-slate-700 font-semibold">San Francisco, CA</p>
                 <p className="text-slate-400 text-sm mt-1">
