@@ -15,6 +15,7 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -25,16 +26,35 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    setError(null);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Something went wrong. Please try again.");
+      } else {
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      }
+    } catch {
+      setError("Network error. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
     {
       icon: Mail,
       title: "Email",
-      details: "hello@devsynta.com",
+      details: "info@devsynta.com",
       description: "Send us an email anytime",
     },
     {
@@ -125,7 +145,7 @@ export default function ContactPage() {
                     Thank you for reaching out. We'll get back to you as soon as possible.
                   </p>
                   <button
-                    onClick={() => setIsSubmitted(false)}
+                    onClick={() => { setIsSubmitted(false); setError(null); }}
                     className="text-[#14648c] hover:text-[#14283c] font-medium text-sm"
                   >
                     Send another message
@@ -204,6 +224,12 @@ export default function ContactPage() {
                       placeholder="Tell us about your project..."
                     />
                   </div>
+
+                  {error && (
+                    <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm">
+                      {error}
+                    </div>
+                  )}
 
                   <button
                     type="submit"

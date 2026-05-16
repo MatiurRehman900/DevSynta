@@ -47,7 +47,7 @@ export default function Footer() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3 text-slate-400">
                 <Mail size={16} className="text-[#28a0a0] flex-shrink-0" />
-                <span className="text-sm">hello@devsynta.com</span>
+                <span className="text-sm">info@devsynta.com</span>
               </div>
               <div className="flex items-center space-x-3 text-slate-400">
                 <Phone size={16} className="text-[#28a0a0] flex-shrink-0" />
