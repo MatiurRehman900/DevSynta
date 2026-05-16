@@ -16,7 +16,7 @@ export async function POST(req: NextRequest) {
 
     const { error } = await resend.emails.send({
       from: "DevSynta Contact <contact@devsynta.com>",
-      to: "info@devsynta.com",
+      to: process.env.CONTACT_EMAIL ?? "mati.rehman054@gmail.com",
       replyTo: email,
       subject: `[Contact Form] ${subject} — from ${name}`,
       html: `
