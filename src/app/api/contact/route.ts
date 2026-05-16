@@ -51,6 +51,7 @@ export async function POST(req: NextRequest) {
       `,
     });
 
+    
     if (error) {
       console.error("Resend error:", error);
       return NextResponse.json(
